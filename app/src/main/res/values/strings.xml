@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NASA</string>
+    <string name="app_name">MarsTracker</string>
     <string name="model1">fun1</string>
     <string name="model4">fun4</string>
     <string name="rover1">rover1</string>
@@ -12,4 +12,9 @@
     <string name="select_end_date">select end date</string>
     <string name="check">check</string>
     <string name="result">result</string>
+    <string name="photoId">Photo ID:</string>
+    <string name="earth_date">Earth date:</string>
+    <string name="sol">SOL:</string>
+    <string name="camera">Camera:</string>
+    <string name="from">From:</string>
 </resources>

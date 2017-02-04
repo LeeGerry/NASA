@@ -1,17 +1,28 @@
 package edu.auburn.weagle.nasa.model;
 
+import java.io.Serializable;
+
 /**
  * photo model
  * Author: Gary
  * Time: 17/2/4
  */
 
-public class Photo {
+public class Photo implements Serializable{
     private int id;
     private int sol;
     private String earth_date;
     private String img_src;
     private Camera camera;
+    private Rover rover;
+
+    public Rover getRover() {
+        return rover;
+    }
+
+    public void setRover(Rover rover) {
+        this.rover = rover;
+    }
 
     public int getId() {
         return id;
