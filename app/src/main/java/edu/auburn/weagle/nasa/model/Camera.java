@@ -20,17 +20,6 @@ public class Camera {
     public void setName(String name) {
         this.name = name;
     }
-
-    /**
-     * default constructor
-     */
-    public Camera() {
-
-    }
-
-    public Camera(CameraType cameraType) {
-        this.type = cameraType;
-    }
     /**
      * To get the ID of camera
      * @return camera's ID
@@ -41,7 +30,7 @@ public class Camera {
 
     /**
      * To set the ID of camera
-     * @param camera's ID
+     * @param id of the camera
      */
     public void setId(int id) {
         this.id = id;
