@@ -38,7 +38,6 @@ public class MainActivity extends BaseActivity {
             R.drawable.fun_four_selector,
             R.drawable.fun_setting_selector,
             R.drawable.fun_desc_selector};
->>>>>>> 9248cd6d1764a235e4f25b152b7d0dd01e3ea16c
     private GVAdapter adapter;
     private GridView gv;
     @Override
