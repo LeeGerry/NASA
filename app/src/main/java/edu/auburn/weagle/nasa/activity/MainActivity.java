@@ -27,7 +27,7 @@ import edu.auburn.weagle.nasa.config.AppConfig;
 public class MainActivity extends BaseActivity {
     private ArrayList<Drawable> list;
     private ArrayList<String> images;
-    private static final String[] names = {"fun1", "fun2", "fun3", "fun4","share"};
+    private static final String[] names = {"Rover1", "fun2", "fun3", "fun4","share"};
 
     private static final int[] icons = {R.mipmap.ic_launcher,
             R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher};

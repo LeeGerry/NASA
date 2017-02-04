@@ -13,13 +13,27 @@ public class Camera {
     private String full_name;
 
     /**
-     * Get the ID of camera
+     * default constructor
+     */
+    public Camera() {
+
+    }
+
+    public Camera(CameraType cameraType) {
+        this.type = cameraType;
+    }
+    /**
+     * To get the ID of camera
      * @return camera's ID
      */
     public int getId() {
         return id;
     }
 
+    /**
+     * To set the ID of camera
+     * @param camera's ID
+     */
     public void setId(int id) {
         this.id = id;
     }
