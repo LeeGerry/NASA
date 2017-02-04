@@ -12,6 +12,10 @@ public class Camera {
     private int rover_id;
     private String full_name;
 
+    /**
+     * Get the ID of camera
+     * @return camera's ID
+     */
     public int getId() {
         return id;
     }
