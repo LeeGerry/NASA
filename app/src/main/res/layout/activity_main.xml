@@ -5,26 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <TextView
+        style="@style/text_title_style"
+        android:text="@string/app_name" />
+    <GridView
+        android:verticalSpacing="10dp"
+        android:layout_margin="5dp"
+        android:numColumns="2"
+        android:id="@+id/gv"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <CheckBox
-        android:text="test1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    <CheckBox
-        android:text="test1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    <CheckBox
-        android:text="test1"
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    <ImageView
-        android:id="@+id/ivImage"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"/>
+    </GridView>
 </LinearLayout>
