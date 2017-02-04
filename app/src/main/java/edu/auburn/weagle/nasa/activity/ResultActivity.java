@@ -1,12 +1,14 @@
 package edu.auburn.weagle.nasa.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import org.xutils.common.Callback;
@@ -28,7 +30,7 @@ import edu.auburn.weagle.nasa.model.Photo;
  */
 
 public class ResultActivity extends BaseActivity {
-    private ListView lvModel;
+    private GridView lvModel;
     private List<Photo> photoList;
     private PhotosAdapter adapter;
     @Override
@@ -36,9 +38,18 @@ public class ResultActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         photoList = new ArrayList<>();
-        lvModel = (ListView) findViewById(R.id.lv_result);
+        lvModel = (GridView) findViewById(R.id.gv_result);
         adapter = new PhotosAdapter();
         lvModel.setAdapter(adapter);
+        lvModel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Photo p = adapter.getItem(position);
+                Intent intent = new Intent(ResultActivity.this, DetailsActivity.class);
+                intent.putExtra("p",p);
+                startActivity(intent);
+            }
+        });
         getDataFromServer();
     }
 
@@ -57,7 +68,7 @@ public class ResultActivity extends BaseActivity {
         }
 
         @Override
-        public Object getItem(int position) {
+        public Photo getItem(int position) {
             return photoList.get(position);
         }
 

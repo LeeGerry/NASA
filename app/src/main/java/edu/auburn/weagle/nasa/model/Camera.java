@@ -1,12 +1,14 @@
 package edu.auburn.weagle.nasa.model;
 
+import java.io.Serializable;
+
 /**
  * Camera model
  * Author: Gary
  * Time: 17/2/4
  */
 
-public class Camera {
+public class Camera implements Serializable{
     private int id;
     private CameraType type;
     private int rover_id;

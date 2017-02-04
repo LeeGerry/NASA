@@ -5,8 +5,12 @@
     <TextView
         android:text="@string/result"
         style="@style/text_title_style" />
-    <ListView
-        android:id="@+id/lv_result"
+    <GridView
+        android:layout_margin="5dp"
+        android:id="@+id/gv_result"
+        android:numColumns="2"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </LinearLayout>
