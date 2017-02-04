@@ -3,7 +3,8 @@ package edu.auburn.weagle.nasa.activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.widget.Spinner;
+import android.view.View;
+import android.widget.Button;
 
 import edu.auburn.weagle.nasa.R;
 import edu.auburn.weagle.nasa.config.AppConfig;
@@ -14,21 +15,21 @@ import edu.auburn.weagle.nasa.config.AppConfig;
  */
 
 public class FunFourActivity extends BaseActivity {
-//    private Button btnSelect;
-    private Spinner spinner;
+    private Button btnSelect;
+//    private Spinner spinner;
     private static int selected;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fun_four);
-//        btnSelect = (Button) findViewById(btnSelect);
-        spinner = (Spinner) findViewById(R.id.spinner);
-//        btnSelect.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                chooseCamera();
-//            }
-//        });
+        btnSelect = (Button) findViewById(R.id.btn_select);
+//        spinner = (Spinner) findViewById(R.id.spinner);
+        btnSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chooseCamera();
+            }
+        });
     }
     private void chooseCamera(){
         AlertDialog.Builder builder = new AlertDialog.Builder(FunFourActivity.this);
@@ -38,7 +39,7 @@ public class FunFourActivity extends BaseActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 selected = i;
-//                btnSelect.setText(AppConfig.types[i]);
+                btnSelect.setText(AppConfig.types[i]);
                 dialogInterface.dismiss();
             }
         });
