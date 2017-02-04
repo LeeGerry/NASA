@@ -12,6 +12,7 @@
         android:verticalSpacing="10dp"
         android:layout_margin="5dp"
         android:numColumns="2"
+
         android:id="@+id/gv"
         android:scrollbars="none"
         android:layout_width="match_parent"
