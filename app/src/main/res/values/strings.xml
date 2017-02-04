@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">NASA</string>
+    <string name="model1">fun1</string>
+    <string name="model4">fun4</string>
+    <string name="rover1">rover1</string>
+    <string name="rover2">rover2</string>
+    <string name="rover3">rover3</string>
 </resources>

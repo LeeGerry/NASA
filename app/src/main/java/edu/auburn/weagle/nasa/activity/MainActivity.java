@@ -1,5 +1,6 @@
 package edu.auburn.weagle.nasa.activity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -44,24 +45,28 @@ public class MainActivity extends BaseActivity {
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = null;
                 switch (position){
                     case 0:
-//                        Intent intent = new Intent(this, )
-//                        startActivity();
+                        intent = new Intent(MainActivity.this, FunOneActivity.class);
+                        startActivity(intent);
                         break;
                     case 1:
-
+                        intent = new Intent(MainActivity.this, FunOneActivity.class);
+                        startActivity(intent);
                         break;
                     case 2:
-
+                        intent = new Intent(MainActivity.this, FunOneActivity.class);
+                        startActivity(intent);
                         break;
                     case 3:
-
+                        intent = new Intent(MainActivity.this, FunFourActivity.class);
+                        startActivity(intent);
                         break;
                 }
             }
         });
-       // getDataFromServer();
+
 
     }
 
