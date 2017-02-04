@@ -1,6 +1,8 @@
 package edu.auburn.weagle.nasa.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -27,10 +29,16 @@ import edu.auburn.weagle.nasa.config.AppConfig;
 public class MainActivity extends BaseActivity {
     private ArrayList<Drawable> list;
     private ArrayList<String> images;
-    private static final String[] names = {"Rover1", "fun2", "fun3", "fun4","share"};
 
-    private static final int[] icons = {R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher};
+    private static final String[] names = {"Curiosity", "Opportunity", "Spirit",
+            "Customize","Setting","Description"};
+
+    private static final int[] icons = {R.drawable.fun_one_selector,
+            R.drawable.fun_two_selector,R.drawable.fun_three_selector,
+            R.drawable.fun_four_selector,
+            R.drawable.fun_setting_selector,
+            R.drawable.fun_desc_selector};
+>>>>>>> 9248cd6d1764a235e4f25b152b7d0dd01e3ea16c
     private GVAdapter adapter;
     private GridView gv;
     @Override
@@ -41,6 +49,7 @@ public class MainActivity extends BaseActivity {
         images = new ArrayList<>();
         adapter = new GVAdapter();
         gv = (GridView) findViewById(R.id.gv);
+        gv.setSelector(new ColorDrawable(Color.TRANSPARENT));
         gv.setAdapter(adapter);
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
