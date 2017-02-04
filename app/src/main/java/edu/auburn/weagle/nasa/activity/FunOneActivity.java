@@ -1,7 +1,6 @@
 package edu.auburn.weagle.nasa.activity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;

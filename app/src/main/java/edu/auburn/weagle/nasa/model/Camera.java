@@ -43,4 +43,14 @@ public class Camera {
     public void setFull_name(String full_name) {
         this.full_name = full_name;
     }
+
+    @Override
+    public String toString() {
+        return "Camera{" +
+                "id=" + id +
+                ", type=" + type +
+                ", rover_id=" + rover_id +
+                ", full_name='" + full_name + '\'' +
+                '}';
+    }
 }

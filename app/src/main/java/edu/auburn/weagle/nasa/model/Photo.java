@@ -52,4 +52,15 @@ public class Photo {
     public void setCamera(Camera camera) {
         this.camera = camera;
     }
+
+    @Override
+    public String toString() {
+        return "Photo{" +
+                "id=" + id +
+                ", sol=" + sol +
+                ", earth_date='" + earth_date + '\'' +
+                ", img_src='" + img_src + '\'' +
+                ", camera=" + camera +
+                '}';
+    }
 }
