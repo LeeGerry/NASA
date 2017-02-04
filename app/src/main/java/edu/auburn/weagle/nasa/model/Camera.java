@@ -11,6 +11,15 @@ public class Camera {
     private CameraType type;
     private int rover_id;
     private String full_name;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     /**
      * Get the ID of camera
