@@ -40,30 +40,26 @@
         android:text="@string/select_camera"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+
+
     <TextView
+        android:id="@+id/tv_start_date"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:singleLine="true"
         android:text="@string/select_start_date"
-        android:textColor="#FFFFFF"
         android:textSize="16sp" />
-
-    <DatePicker
-        android:id="@+id/date_picker_start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dip" />
     <TextView
+        android:id="@+id/tv_end_date"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:singleLine="true"
-        android:text="@string/select_start_date"
-        android:textColor="#FFFFFF"
+        android:text="@string/select_end_date"
         android:textSize="16sp" />
-
-    <DatePicker
-        android:id="@+id/date_picker_end"
+    <Button
+        android:id="@+id/btnCheck"
+        android:text="@string/check"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dip" />
+        android:layout_height="wrap_content" />
 </LinearLayout>
