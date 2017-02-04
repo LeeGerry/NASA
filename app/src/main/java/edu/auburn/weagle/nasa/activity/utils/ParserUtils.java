@@ -31,7 +31,7 @@ public class ParserUtils {
                 Camera c = new Camera();
                 JSONObject camera = model.getJSONObject("camera");
                 c.setId(camera.getInt("id"));
-                c.setName(camera.getString("name"));
+                c.setShortName(camera.getString("name"));
                 c.setRover_id(camera.getInt("rover_id"));
                 c.setFull_name(camera.getString("full_name"));
                 photo.setCamera(c);
