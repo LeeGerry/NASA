@@ -1,25 +1,30 @@
 package edu.auburn.weagle.nasa.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.image.ImageOptions;
 import org.xutils.x;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import edu.auburn.weagle.nasa.R;
+import edu.auburn.weagle.nasa.activity.utils.ParserUtils;
 import edu.auburn.weagle.nasa.config.AppConfig;
 import edu.auburn.weagle.nasa.model.Photo;
 
@@ -29,38 +34,85 @@ import edu.auburn.weagle.nasa.model.Photo;
  */
 
 public class FunOneActivity extends BaseActivity {
-    private ListView lvModel;
+    private GridView lvModel;
     private List<Photo> photoList;
     private PhotosAdapter adapter;
+    private ImageView ivback;
+    private String url;
+    private Date date;
+    private ProgressBar pb;
+    private String currentDate;
+    private int id;
+    private SimpleDateFormat dateformat;
+    private String date3 = "2010-03-21";
+    private TextView tvTitle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fun_one);
-        lvModel = (ListView) findViewById(R.id.lvModel1);
+        setContentView(R.layout.activity_common);
+        ivback = (ImageView) findViewById(R.id.iv_back);
+        tvTitle = (TextView) findViewById(R.id.tv_photo_id_title);
+        pb = (ProgressBar) findViewById(R.id.pb);
+        ivback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        Intent intent = getIntent();
+        id = intent.getIntExtra("id", 0);
+        tvTitle.setText(AppConfig.ROVER_NAMES[id]);
+        if (id == 2) {
+            currentDate = date3;
+
+        } else {
+            date = new Date();
+            dateformat = new SimpleDateFormat("yyyy-MM-dd");
+            currentDate = dateformat.format(date);
+        }
+        Log.i(TAG,currentDate);
+        url = "https://api.nasa.gov/mars-photos/api/v1/rovers/" + AppConfig.ROVER_NAMES[id] + "/photos?earth_date=" + currentDate + "&api_key=eVQWCl4aiAvDuNwvXzMFzvDQEZ2BakaANp03RVtI";
         photoList = new ArrayList<>();
+        lvModel = (GridView) findViewById(R.id.gv_result);
         adapter = new PhotosAdapter();
         lvModel.setAdapter(adapter);
+        lvModel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Photo p = adapter.getItem(position);
+                Intent intent = new Intent(FunOneActivity.this, DetailsActivity.class);
+                intent.putExtra("p", p);
+                startActivity(intent);
+            }
+        });
         getDataFromServer();
     }
-    /** fun1 the adapter for listview */
+
+    private void produceUrl(String date) {
+        url = "https://api.nasa.gov/mars-photos/api/v1/rovers/" + AppConfig.ROVER_NAMES[id] + "/photos?earth_date=" + date + "&api_key=eVQWCl4aiAvDuNwvXzMFzvDQEZ2BakaANp03RVtI";
+    }
+
+    /**
+     * fun1 the adapter for listview
+     */
     private class PhotosAdapter extends BaseAdapter {
         ImageOptions options;
-        public PhotosAdapter(){
+
+        public PhotosAdapter() {
             options = new ImageOptions.Builder()
-                    .setLoadingDrawableId(R.mipmap.ic_launcher)
-                    .setFailureDrawableId(R.mipmap.ic_launcher)
+                    .setLoadingDrawableId(R.mipmap.default_loading)
+                    .setFailureDrawableId(R.mipmap.default_loading)
                     .build();
-//
         }
+
         @Override
         public int getCount() {
             return photoList.size();
-//            return 10;
-
         }
 
         @Override
-        public Object getItem(int position) {
+        public Photo getItem(int position) {
             return photoList.get(position);
         }
 
@@ -74,57 +126,56 @@ public class FunOneActivity extends BaseActivity {
             ViewHolder holder;
             View view;
             Photo info = photoList.get(position);
-
-
-            if (convertView != null){
+            if (convertView != null) {
                 view = convertView;
                 holder = (ViewHolder) view.getTag();
-            }else {
+            } else {
                 view = View.inflate(FunOneActivity.this, R.layout.list_item, null);
                 holder = new ViewHolder();
                 holder.ivIcon = (ImageView) view.findViewById(R.id.iv_icon);
+                holder.tvName = (TextView) view.findViewById(R.id.tv_name);
                 view.setTag(holder);
             }
+            holder.tvName.setText(info.getEarth_date());
             x.image().bind(holder.ivIcon, info.getImg_src(), options);
             return view;
         }
     }
 
-    private static class ViewHolder{
-        TextView tvName, tvSize;
+    private static class ViewHolder {
+        TextView tvName;
         ImageView ivIcon;
-
     }
+
+    private static int index = 1;
 
     /**
      * load data from server
      */
-    private void getDataFromServer(){
-        RequestParams params = new RequestParams(AppConfig.sample);
-
-        x.http().get(params, new Callback.CommonCallback<String>(){
+    private void getDataFromServer() {
+        RequestParams params = new RequestParams(url);
+        Log.i(TAG, url);
+        x.http().get(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                try {
-                    JSONObject jo = new JSONObject(result);
-                    JSONArray photos = jo.getJSONArray("photos");
-
-                    for(int i = 0;i<10;i++){
-                        Photo photo = new Photo();
-                        JSONObject model = (JSONObject) photos.get(i);
-                        photo.setImg_src(model.getString("img_src"));
-                        photoList.add(photo);
-                    }
-                    adapter.notifyDataSetChanged();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                pb.setVisibility(View.GONE);
+                List<Photo> purser = ParserUtils.purser(result);
+                Log.i(TAG, purser.size() + "");
+                photoList.addAll(purser);
 
             }
 
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
+                pb.setVisibility(View.GONE);
 
+                Calendar c = Calendar.getInstance();
+                c.add(Calendar.DAY_OF_MONTH, -index);
+                index++;
+                Date d = c.getTime();
+                currentDate = dateformat.format(d);
+                produceUrl(currentDate);
+                getDataFromServer();
             }
 
             @Override
@@ -134,9 +185,15 @@ public class FunOneActivity extends BaseActivity {
 
             @Override
             public void onFinished() {
-
+                adapter.notifyDataSetChanged();
             }
         });
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        index = 1;
+        super.onDestroy();
     }
 }

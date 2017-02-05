@@ -22,7 +22,7 @@ public class ParserUtils {
         try {
             JSONObject jo = new JSONObject(json);
             JSONArray photos = jo.getJSONArray("photos");
-            for(int i = 0;i<10;i++){
+            for(int i = 0;i<photos.length();i++){
                 Photo photo = new Photo();
                 JSONObject model = (JSONObject) photos.get(i);
                 photo.setImg_src(model.getString("img_src"));
@@ -49,8 +49,7 @@ public class ParserUtils {
                 r.setTotal_photos(ro.getLong("total_photos"));
                 photo.setRover(r);
                 photo.setCamera(c);
-                result.add(photo);
-                System.out.println(photo.toString());
+                result.add(0,photo);
             }
         } catch (JSONException e) {
             e.printStackTrace();

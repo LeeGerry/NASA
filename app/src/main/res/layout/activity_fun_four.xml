@@ -4,62 +4,322 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#303F9F">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/aao" />
+
+        <TextView
+            android:id="@+id/tv_photo_id_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:text="@string/model4"
+            android:textColor="@android:color/white"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
     <TextView
-        style="@style/text_title_style"
-        android:text="@string/model4" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/select_rover"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_size_select" />
 
     <RadioGroup
         android:id="@+id/rg_mode"
-        android:layout_width="300dip"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:layout_marginLeft="15dp"
+        android:orientation="horizontal"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_size_select">
 
         <RadioButton
-            android:id="@+id/rb_phone"
-            android:layout_width="wrap_content"
+            android:id="@+id/rb_r1"
+            android:layout_width="@dimen/rb_width"
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="@string/rover1" />
 
         <RadioButton
-            android:id="@+id/rb_sms"
-            android:layout_width="wrap_content"
+            android:id="@+id/rb_r2"
+            android:layout_width="@dimen/rb_width"
             android:layout_height="wrap_content"
             android:text="@string/rover2" />
 
         <RadioButton
-            android:id="@+id/rb_all"
-            android:layout_width="wrap_content"
+            android:id="@+id/rb_r3"
+            android:layout_width="@dimen/rb_width"
             android:layout_height="wrap_content"
             android:text="@string/rover3" />
     </RadioGroup>
 
-    <Button
-        android:id="@+id/btn_select"
-        android:text="@string/select_camera"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
+        android:layout_height="1dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/colorPrimaryDark" />
 
     <TextView
-        android:id="@+id/tv_start_date"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:text="@string/select_start_date"
-        android:textSize="16sp" />
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/select_camera"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_size_select" />
+
+    <edu.auburn.weagle.nasa.activity.view.MyRadioGroup
+        android:id="@+id/mrg1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/mg1_c1"
+                android:layout_width="@dimen/rb_width"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/camera1" />
+
+            <RadioButton
+                android:id="@+id/mg1_c2"
+                android:layout_width="@dimen/rb_width"
+                android:layout_height="wrap_content"
+                android:text="@string/camera2" />
+
+            <RadioButton
+                android:id="@+id/mg1_c3"
+                android:layout_width="@dimen/rb_width"
+                android:layout_height="wrap_content"
+                android:text="@string/camera3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/mg1_c4"
+                android:layout_width="@dimen/rb_width"
+                android:layout_height="wrap_content"
+                android:text="@string/camera4" />
+
+            <RadioButton
+                android:id="@+id/mg1_c5"
+                android:layout_width="@dimen/rb_width"
+                android:layout_height="wrap_content"
+                android:text="@string/camera5" />
+
+            <RadioButton
+                android:id="@+id/mg1_c6"
+                android:layout_width="@dimen/rb_width"
+                android:layout_height="wrap_content"
+                android:text="@string/camera6" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/mg1_c7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/camera7" />
+        </LinearLayout>
+    </edu.auburn.weagle.nasa.activity.view.MyRadioGroup>
+
+    <edu.auburn.weagle.nasa.activity.view.MyRadioGroup
+        android:id="@+id/mrg2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/mg2_c1"
+                android:layout_width="@dimen/rb_width"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/camera1" />
+
+            <RadioButton
+                android:id="@+id/mg2_c2"
+                android:layout_width="@dimen/rb_width"
+                android:layout_height="wrap_content"
+                android:text="@string/camera2" />
+
+            <RadioButton
+                android:id="@+id/mg2_c7"
+                android:layout_width="@dimen/rb_width"
+                android:layout_height="wrap_content"
+                android:text="@string/camera7" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/mg2_c8"
+                android:layout_width="@dimen/rb_width"
+                android:layout_height="wrap_content"
+                android:text="@string/camera8" />
+
+            <RadioButton
+                android:id="@+id/mg2_c9"
+                android:layout_width="@dimen/rb_width"
+                android:layout_height="wrap_content"
+                android:text="@string/camera9" />
+        </LinearLayout>
+
+
+    </edu.auburn.weagle.nasa.activity.view.MyRadioGroup>
+
     <TextView
-        android:id="@+id/tv_end_date"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/colorPrimaryDark" />
+
+    <TextView
+        android:id="@+id/tv_tip"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:text="@string/select_end_date"
-        android:textSize="16sp" />
-    <Button
-        android:id="@+id/btnCheck"
-        android:text="@string/check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_marginLeft="15dp"
+        android:text="@string/select_date_sol"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_size_select" />
+
+    <RadioGroup
+        android:id="@+id/rg_sol_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:orientation="horizontal"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_size_select">
+
+        <RadioButton
+            android:id="@+id/rb_sol"
+            android:layout_width="@dimen/rb_width"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/sol_tip" />
+
+        <RadioButton
+            android:id="@+id/rb_date"
+            android:layout_width="@dimen/rb_width"
+            android:layout_height="wrap_content"
+            android:text="@string/date_tip" />
+
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/ll_tips1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_sol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sol_tip"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_size_select" />
+
+        <EditText
+            android:id="@+id/et_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/tips_sol"
+            android:inputType="number" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_tips2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/btnDate"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_bg_selector"
+            android:text="@string/date_tip"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/btn_text" />
+
+        <TextView
+            android:id="@+id/tv_start_date"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_size_select" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/colorPrimaryDark" />
+
+    <LinearLayout
+        android:id="@+id/llCheck"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/btn_bg_selector"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/search_selector" />
+
+        <TextView
+            android:id="@+id/btnCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:text="@string/check"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_size_select" />
+    </LinearLayout>
+
 </LinearLayout>
