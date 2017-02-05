@@ -29,6 +29,7 @@ import edu.auburn.weagle.nasa.config.AppConfig;
 public class MainActivity extends BaseActivity {
     private ArrayList<Drawable> list;
     private ArrayList<String> images;
+
     private static final String[] names = {"Curiosity", "Opportunity", "Spirit",
             "Customize","Setting","About"};
 

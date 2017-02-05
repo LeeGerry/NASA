@@ -87,4 +87,5 @@
             android:layout_height="wrap_content"
             android:text="@string/copy_right" />
     </LinearLayout>
+
 </LinearLayout>
