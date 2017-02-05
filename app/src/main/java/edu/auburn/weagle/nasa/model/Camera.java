@@ -13,22 +13,22 @@ public class Camera implements Serializable{
     private CameraType type;
     private int rover_id;
     private String full_name;
-    private String short_name;
+    private String name;
 
     /**
      * To get the short name of camera
      * @return short_name of the camera
      */
-    public String getShortName() {
-        return short_name;
+    public String getName() {
+        return name;
     }
 
     /**
      * To set the short name of camera
-     * @param shortName of the camera
+     * @param name of the camera
      */
-    public void setShortName(String shortName) {
-        this.short_name = shortName;
+    public void setName(String name) {
+        this.name = name;
     }
     /**
      * To get the ID of camera
