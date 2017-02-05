@@ -1,5 +1,7 @@
 package edu.auburn.weagle.nasa.config;
 
+import android.util.Log;
+
 /**
  * Author: Gary
  * Time: 17/2/3

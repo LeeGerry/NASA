@@ -29,6 +29,7 @@ import edu.auburn.weagle.nasa.config.AppConfig;
 public class MainActivity extends BaseActivity {
     private ArrayList<Drawable> list;
     private ArrayList<String> images;
+
     private static final String[] names = {"Curiosity", "Opportunity", "Spirit",
             "Customize","Setting","Description"};
 
@@ -71,6 +72,12 @@ public class MainActivity extends BaseActivity {
                         break;
                     case 3:
                         intent = new Intent(MainActivity.this, FunFourActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        intent = new Intent(MainActivity.this, DescriptionActivity.class);
                         startActivity(intent);
                         break;
                 }
