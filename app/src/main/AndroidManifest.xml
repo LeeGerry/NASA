@@ -34,6 +34,8 @@
         <activity android:name=".activity.FunFourActivity"/>
         <activity android:name=".activity.ResultActivity"/>
         <activity android:name=".activity.DetailsActivity"/>
+        <activity android:name=".activity.DescriptionActivity"/>
+
 
         <activity
             android:name="com.mob.tools.MobUIShell"

@@ -73,6 +73,12 @@ public class MainActivity extends BaseActivity {
                         intent = new Intent(MainActivity.this, FunFourActivity.class);
                         startActivity(intent);
                         break;
+                    case 4:
+                        break;
+                    case 5:
+                        intent = new Intent(MainActivity.this, DescriptionActivity.class);
+                        startActivity(intent);
+                        break;
                 }
             }
         });

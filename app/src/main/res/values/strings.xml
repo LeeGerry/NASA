@@ -33,4 +33,6 @@
     <string name="date_tip">Earth date</string>
     <string name="tips_sol">Please enter an integer (0-9999)</string>
     <string name="no_date">No photos found!</string>
+    <string name="about">About</string>
+    <string name="copy_right">Copyrights © %1$d</string>
 </resources>
