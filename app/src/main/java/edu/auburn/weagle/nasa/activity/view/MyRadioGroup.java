@@ -2,7 +2,6 @@ package edu.auburn.weagle.nasa.activity.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,7 +70,7 @@ public class MyRadioGroup extends RadioGroup {
     public void checkRadioButton(RadioButton radioButton) {
 
         id = radioButton.getId();
-        Log.i("TEST",id+"");
+        //Log.i("TEST",id+"");
         View child;
         int radioCount = getChildCount();
         for (int i = 0; i < radioCount; i++) {

@@ -27,4 +27,14 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.1.0'
     testCompile 'junit:junit:4.12'
     compile 'org.xutils:xutils:3.3.40'
+    compile files('libs/MobCommons-2016.1222.1756.jar')
+    compile files('libs/MobTools-2016.1222.1756.jar')
+    compile files('libs/ShareSDK-Core-2.8.0.jar')
+    compile files('libs/ShareSDK-Facebook-2.8.0.jar')
+    compile files('libs/ShareSDK-GooglePlus-2.8.0.jar')
+    compile files('libs/ShareSDK-Instagram-2.8.0.jar')
+    compile files('libs/ShareSDK-Twitter-2.8.0.jar')
+    compile files('libs/ShareSDK-Wechat-Core-2.8.0.jar')
+    compile files('libs/ShareSDK-Wechat-Moments-2.8.0.jar')
+    compile files('libs/ShareSDK-WhatsApp-2.8.0.jar')
 }
