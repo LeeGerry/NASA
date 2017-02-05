@@ -56,14 +56,17 @@ public class MainActivity extends BaseActivity {
                 switch (position){
                     case 0:
                         intent = new Intent(MainActivity.this, FunOneActivity.class);
+                        intent.putExtra("id",0);
                         startActivity(intent);
                         break;
                     case 1:
                         intent = new Intent(MainActivity.this, FunOneActivity.class);
+                        intent.putExtra("id",1);
                         startActivity(intent);
                         break;
                     case 2:
                         intent = new Intent(MainActivity.this, FunOneActivity.class);
+                        intent.putExtra("id",2);
                         startActivity(intent);
                         break;
                     case 3:
