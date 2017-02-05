@@ -242,6 +242,7 @@
 
     <LinearLayout
         android:id="@+id/ll_tips1"
+        android:layout_marginLeft="@dimen/margin_left"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -251,7 +252,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sol_tip"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="@dimen/text_size_select" />
 
         <EditText

@@ -6,7 +6,7 @@ package edu.auburn.weagle.nasa.config;
  */
 
 public class AppConfig {
-    public final static String[] ROVER_NAMES = {"curiosity","opportunity","spirit"};
+    public final static String[] ROVER_NAMES = {"Curiosity","Opportunity","Spirit"};
 
     public final static String[] types = {"FHAZ","RHAZ","MAST","CHEMCAM","MAHLI","MARDI","NAVCAM","PANCAM","MINITES"};
     public final static String[] types1 = {"FHAZ","RHAZ","MAST","CHEMCAM","MAHLI","MARDI","NAVCAM"};

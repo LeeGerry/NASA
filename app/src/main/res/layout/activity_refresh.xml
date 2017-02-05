@@ -1,53 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/rlHead"
-        android:background="#303F9F"
         android:layout_width="match_parent"
-        android:layout_height="55dp">
+        android:layout_height="55dp"
+        android:background="#303F9F">
+
         <ImageView
-            android:layout_gravity="center_vertical"
             android:id="@+id/iv_back"
-            android:src="@drawable/aao"
             android:layout_width="50dp"
-            android:layout_height="50dp" />
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/aao" />
+
         <TextView
-            android:layout_centerInParent="true"
-            android:textColor="@android:color/white"
-            android:textSize="25dp"
-            android:text="@string/result"
             android:id="@+id/tv_photo_id_title"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/result"
+            android:textColor="@android:color/white"
+            android:textSize="25dp" />
     </RelativeLayout>
 
     <TextView
-        android:drawableTop="@drawable/failed_no_data"
         android:id="@+id/tv_not_found"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:drawableTop="@drawable/failed_no_data"
         android:gravity="center_horizontal"
         android:text="@string/no_date"
         android:textSize="20dp"
         android:visibility="gone" />
 
-        <GridView
-            android:layout_below="@id/rlHead"
-            android:id="@+id/gv_result"
+    <com.cjj.MaterialRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_below="@id/rlHead"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:overlay="false"
+        app:wave_color="@color/material_green"
+        app:wave_height_type="higher"
+        app:wave_show="true">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycleview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:horizontalSpacing="10dp"
-            android:numColumns="2"
-            android:verticalSpacing="10dp" />
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+    </com.cjj.MaterialRefreshLayout>
 
     <ProgressBar
         android:id="@+id/pb"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"

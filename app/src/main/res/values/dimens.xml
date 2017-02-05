@@ -5,4 +5,5 @@
     <dimen name="text_size_select">20dp</dimen>
     <dimen name="rb_width">110dp</dimen>
     <dimen name="btn_text">16dp</dimen>
+    <dimen name="margin_left">10dp</dimen>
 </resources>

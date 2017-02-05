@@ -12,10 +12,10 @@
     <string name="select_start_date">select start date</string>
     <string name="select_end_date">select end date</string>
     <string name="check">Submit</string>
-    <string name="result">result</string>
+    <string name="result">Photos</string>
     <string name="photoId">Photo ID:</string>
     <string name="earth_date">Earth date:</string>
-    <string name="sol">SOL:</string>
+    <string name="sol">Sol:</string>
     <string name="camera">Camera:</string>
     <string name="from">From:</string>
     <string name="camera1">FHAZ</string>
@@ -34,5 +34,7 @@
     <string name="tips_sol">Please enter an integer (0-9999)</string>
     <string name="no_date">No photos found!</string>
     <string name="about">About</string>
-    <string name="copy_right">Copyrights © %1$d</string>
+    <string name="copy_right">Copyrights © 2017</string>
+    <string name="version">Version Bete 0.1</string>
+    <string name="content">Contact with us</string>
 </resources>

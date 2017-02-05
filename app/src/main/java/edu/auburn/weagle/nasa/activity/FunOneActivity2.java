@@ -5,13 +5,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.cjj.MaterialRefreshLayout;
+import com.cjj.MaterialRefreshListener;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -34,8 +36,9 @@ import edu.auburn.weagle.nasa.model.Photo;
  * Time: 17/2/4
  */
 
-public class FunOneActivity extends BaseActivity {
+public class FunOneActivity2 extends BaseActivity {
     private GridView lvModel;
+    private MaterialRefreshLayout refresh;
     private List<Photo> photoList;
     private PhotosAdapter adapter;
     private ImageView ivback;
@@ -46,14 +49,25 @@ public class FunOneActivity extends BaseActivity {
     private int id;
     private SimpleDateFormat dateformat;
     private String date3 = "2010-03-21";
-    private String end = "2010-02-21";
     private TextView tvTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_common);
+        setContentView(R.layout.activity_common1);
         ivback = (ImageView) findViewById(R.id.iv_back);
+        refresh = (MaterialRefreshLayout) findViewById(R.id.refresh);
+        refresh.setMaterialRefreshListener(new MaterialRefreshListener() {
+            @Override
+            public void onRefresh(MaterialRefreshLayout materialRefreshLayout) {
+
+            }
+
+            @Override
+            public void onRefreshLoadMore(MaterialRefreshLayout materialRefreshLayout) {
+
+            }
+        });
         tvTitle = (TextView) findViewById(R.id.tv_photo_id_title);
         pb = (ProgressBar) findViewById(R.id.pb);
         ivback.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +81,7 @@ public class FunOneActivity extends BaseActivity {
         tvTitle.setText(AppConfig.ROVER_NAMES[id]);
         if (id == 2) {
             currentDate = date3;
-            url = "https://api.nasa.gov/mars-photos/api/v1/rovers/spirit/photos?sol=1000&api_key=eVQWCl4aiAvDuNwvXzMFzvDQEZ2BakaANp03RVtI";
+
         } else {
             date = new Date();
             dateformat = new SimpleDateFormat("yyyy-MM-dd");
@@ -83,21 +97,9 @@ public class FunOneActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Photo p = adapter.getItem(position);
-                Intent intent = new Intent(FunOneActivity.this, DetailsActivity.class);
+                Intent intent = new Intent(FunOneActivity2.this, DetailsActivity.class);
                 intent.putExtra("p", p);
                 startActivity(intent);
-            }
-        });
-
-        lvModel.setOnScrollListener(new AbsListView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState) {
-
-            }
-
-            @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-
             }
         });
         getDataFromServer();
@@ -144,7 +146,7 @@ public class FunOneActivity extends BaseActivity {
                 view = convertView;
                 holder = (ViewHolder) view.getTag();
             } else {
-                view = View.inflate(FunOneActivity.this, R.layout.list_item, null);
+                view = View.inflate(FunOneActivity2.this, R.layout.list_item, null);
                 holder = new ViewHolder();
                 holder.ivIcon = (ImageView) view.findViewById(R.id.iv_icon);
                 holder.tvName = (TextView) view.findViewById(R.id.tv_name);
@@ -167,8 +169,6 @@ public class FunOneActivity extends BaseActivity {
      * load data from server
      */
     private void getDataFromServer() {
-        if(id == 2)
-            url = "https://api.nasa.gov/mars-photos/api/v1/rovers/spirit/photos?sol=800&api_key=eVQWCl4aiAvDuNwvXzMFzvDQEZ2BakaANp03RVtI";
         RequestParams params = new RequestParams(url);
         Log.i(TAG, url);
         x.http().get(params, new Callback.CommonCallback<String>() {

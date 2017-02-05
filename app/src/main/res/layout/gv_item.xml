@@ -12,6 +12,8 @@
         android:layout_height="80dp" />
 
     <TextView
+        android:textSize="@dimen/text_size_select"
+        android:textColor="#000"
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

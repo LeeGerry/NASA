@@ -36,8 +36,12 @@
         android:textSize="20dp"
         android:visibility="gone" />
 
+    <com.cjj.MaterialRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_below="@id/rlHead"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
         <GridView
-            android:layout_below="@id/rlHead"
             android:id="@+id/gv_result"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -45,6 +49,8 @@
             android:horizontalSpacing="10dp"
             android:numColumns="2"
             android:verticalSpacing="10dp" />
+    </com.cjj.MaterialRefreshLayout>
+
 
     <ProgressBar
         android:id="@+id/pb"
