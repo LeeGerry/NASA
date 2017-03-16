@@ -1,6 +1,6 @@
 package edu.auburn.weagle.nasa.config;
 
-import android.util.Log;
+import edu.auburn.weagle.nasa.R;
 
 /**
  * Author: Gary
@@ -8,6 +8,14 @@ import android.util.Log;
  */
 
 public class AppConfig {
+    public static final String[] names = {"Curiosity", "Opportunity", "Spirit",
+            "Customize","Setting","About"};
+
+    public static final int[] icons = {R.drawable.fun_one_selector,
+            R.drawable.fun_two_selector,R.drawable.fun_three_selector,
+            R.drawable.fun_four_selector,
+            R.drawable.fun_setting_selector,
+            R.drawable.fun_desc_selector};
     public final static String[] ROVER_NAMES = {"Curiosity","Opportunity","Spirit"};
 
     public final static String[] types = {"FHAZ","RHAZ","MAST","CHEMCAM","MAHLI","MARDI","NAVCAM","PANCAM","MINITES"};
@@ -19,7 +27,4 @@ public class AppConfig {
 
     public final static String sample = SERVER+"/mars-photos/api/v1/rovers/curiosity/photos?sol=1000"+API_KEY;
     public final static String URL_FUNC1 = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=none&api_key=eVQWCl4aiAvDuNwvXzMFzvDQEZ2BakaANp03RVtI";
-//    public final static String URL_FUNC2 = "https://api.nasa.gov/mars-photos/api/v1/rovers/opportunity/photos?sol=none&api_key=eVQWCl4aiAvDuNwvXzMFzvDQEZ2BakaANp03RVtI";
-//    public final static String URL_FUNC3 = "https://api.nasa.gov/mars-photos/api/v1/rovers/spirit/photos?sol=none&api_key=eVQWCl4aiAvDuNwvXzMFzvDQEZ2BakaANp03RVtI";
-
 }

@@ -24,6 +24,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import edu.auburn.weagle.nasa.R;
 import edu.auburn.weagle.nasa.activity.utils.ParserUtils;
 import edu.auburn.weagle.nasa.config.AppConfig;
@@ -35,27 +37,25 @@ import edu.auburn.weagle.nasa.model.Photo;
  */
 
 public class FunOneActivity extends BaseActivity {
-    private GridView lvModel;
+    @BindView(R.id.gv_result) GridView lvModel;
     private List<Photo> photoList;
     private PhotosAdapter adapter;
-    private ImageView ivback;
+    @BindView(R.id.iv_back) ImageView ivback;
     private String url;
     private Date date;
-    private ProgressBar pb;
+    @BindView(R.id.pb) ProgressBar pb;
     private String currentDate;
     private int id;
     private SimpleDateFormat dateformat;
     private String date3 = "2010-03-21";
     private String end = "2010-02-21";
-    private TextView tvTitle;
+    @BindView(R.id.tv_photo_id_title) TextView tvTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_common);
-        ivback = (ImageView) findViewById(R.id.iv_back);
-        tvTitle = (TextView) findViewById(R.id.tv_photo_id_title);
-        pb = (ProgressBar) findViewById(R.id.pb);
+        ButterKnife.bind(this);
         ivback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,7 +76,6 @@ public class FunOneActivity extends BaseActivity {
         Log.i(TAG,currentDate);
         url = "https://api.nasa.gov/mars-photos/api/v1/rovers/" + AppConfig.ROVER_NAMES[id] + "/photos?earth_date=" + currentDate + "&api_key=eVQWCl4aiAvDuNwvXzMFzvDQEZ2BakaANp03RVtI";
         photoList = new ArrayList<>();
-        lvModel = (GridView) findViewById(R.id.gv_result);
         adapter = new PhotosAdapter();
         lvModel.setAdapter(adapter);
         lvModel.setOnItemClickListener(new AdapterView.OnItemClickListener() {

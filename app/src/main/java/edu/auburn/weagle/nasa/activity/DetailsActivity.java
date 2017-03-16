@@ -80,7 +80,6 @@ public class DetailsActivity extends BaseActivity {
         oks.disableSSOWhenAuthorize();
 
         oks.setTitle("Mar");
-//        oks.setTitleUrl("http://google.com");
         oks.setText("From MarsTracker:");
         oks.setImageUrl(photo.getImg_src());
 
